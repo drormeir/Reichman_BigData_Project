@@ -121,7 +121,8 @@ class MockObjectStorage:
             is_str = isinstance(datas[0],str) or isinstance(datas[0],list)
         else:
             is_str = isinstance(datas,str) or isinstance(datas,list)
-            assert not is_str or isinstance(datas,str) or isinstance(datas,list) and isinstance(datas[0],str)
+            assert not is_str or isinstance(datas,str) or\
+            isinstance(datas,list) and (isinstance(datas[0],str) or isinstance(datas[0],tuple))
             names  = [names]
             datas  = [datas]
         for name,data in zip(names,datas):
